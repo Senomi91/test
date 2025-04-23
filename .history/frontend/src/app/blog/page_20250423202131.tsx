@@ -1,0 +1,48 @@
+interface Articolo {
+	id: number;
+	attributes: {
+		title: string;
+		body: string;
+	};
+}
+
+async function getArticoli(): Promise<Articolo[]> {
+	try {
+	  const res = await fetch('http://localhost:1337/api/articolos?populate=*', {
+		cache: 'no-store',
+	  });
+	
+	  if (!res.ok) {
+		console.error('Errore nella fetch:', res.status);
+		return [];
+	  }
+	
+	  const data = await res.json();
+	  console.log('Risposta completa da Strapi:', data);  // Log completo della risposta
+	
+	  return data.data || [];
+	} catch (error) {
+	  console.error('Errore durante il fetch:', error);
+	  return [];
+	}
+  }
+
+export default async function BlogPage() {
+	
+	const articoli = await getArticoli();
+	console.log('Articoli dopo fetch:', articoli);
+
+	return (
+		<div>
+			<h1>Articoli</h1>
+			<ul>
+				{articoli.map((articolo) => (
+					<li key={articolo.id}>
+						<h2>{articolo.attributes.title}</h2>
+						<p>{articolo.attributes.body}</p>
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+}

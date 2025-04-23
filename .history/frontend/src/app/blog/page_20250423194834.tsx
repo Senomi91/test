@@ -1,0 +1,33 @@
+interface Articolo {
+  id: number;
+  attributes: {
+    titolo: string;
+    contenuto: string;
+  };
+}
+
+async function getArticoli(): Promise<Articolo[]> {
+  const res = await fetch('http://localhost:1337/api/articoli?populate=*', {
+    cache: 'no-store', // oppure 'force-cache' per SSG
+  });
+  const data = await res.json();
+  return data.data;
+}
+
+export default async function BlogPage() {
+  const articoli = await getArticoli();
+
+  return (
+    <div>
+      <h1>Articoli</h1>
+      <ul>
+        {articoli.map((articolo) => (
+          <li key={articolo.id}>
+            <h2>{articolo.attributes.titolo}</h2>
+            <p>{articolo.attributes.contenuto}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
