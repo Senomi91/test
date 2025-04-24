@@ -8,21 +8,12 @@
 
 Per avviare il progetto:
 
-modificare in /backend/config/server.js
-
-module.exports = ({ env }) => ({
-    host: env('HOST', '0.0.0.0'),
-    port: env.int('PORT', 1337),
-    app: {
-        keys: env.array('APP_KEYS'),
-    },
-});
-
 ```bash
 git clone https://github.com/Senomi91/test.git
 
 cd test
 
+# CREA .env.example
 cat > backend/.env.example <<EOL
 HOST=0.0.0.0
 PORT=1337
@@ -34,7 +25,7 @@ EOL
 
 cp backend/.env.example backend/.env
 
-# CREA CHIAVI
+# CREA CHIAVI: ADMIN_JWT_SECRET, JWT_SECRET, API_TOKEN_SALT DA SOSTITUIRE IN backend/.env
 openssl rand -base64 32
 
 npm install
@@ -48,3 +39,5 @@ cd ../frontend && npm install
 cd ..
 
 npm run dev
+
+# http://localhost:3000/
