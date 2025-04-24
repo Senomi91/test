@@ -1,0 +1,67 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/app/page.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.page_page__ZU32B {
+	padding: 30px 15px;
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.page_container__aoG4z {
+	max-width: 1920px;
+	margin: 0 auto;
+}
+
+.page_title__3jonF {
+	font-size: 35px;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+
+.page_post_title__yZIgT {
+	font-size: 25px;
+	margin-bottom: 5px;
+}
+
+.page_post_list__aTdoF {
+    margin-bottom: 30px;
+}
+
+.page_list__NOc4w {
+	column-count: 3;
+}
+
+.page_small__RgsZM {
+	color: #7a59f5;
+	font-size: 15px;
+	font-weight: 600;
+    display: inline-block;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.page_button_list__qrCxm {
+	margin-top: 25px;
+}
+
+.page_button_list__qrCxm li {
+	display: inline-block;
+}
+
+.page_button_list__qrCxm li:first-child {
+	margin-right: 25px;
+}
+
+.page_page__ZU32B .page_button_list__qrCxm li a {
+	padding: 10px 25px;
+	background-color: #7a59f5;
+	color: #FFFFFF;
+	font-size: 18px;
+	border-radius: 15px;
+}
+
+@media screen and (max-width: 768px) {
+	.page_list__NOc4w {
+		column-count: 2;
+	}
+}
